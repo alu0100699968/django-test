@@ -1,0 +1,10 @@
+<h1>Pantalla de edición</h1>
+<h2>Usuario a editar: {{ object }}</h2>
+<h3>DNI: {{ object.pk }}</h3>
+<h3>Titulacion: {{ object.titulacion }}</h3>
+<h3>E-mail: {{ object.email }}</h3>
+<h3>Teléfono: {{ object.telefono }}</h3>
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save" />
+</form>

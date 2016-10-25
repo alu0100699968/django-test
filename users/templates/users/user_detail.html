@@ -1,0 +1,9 @@
+<h1>Detalles usuario</h1>
+
+<h2>{{ user }}</h2>
+{% if is_staff %}
+  <p>DNI: {{ user.dni }}</p>
+{% endif %}
+{% if is_solicitante %}
+  <p>solicitanteee</p>
+{% endif %}
