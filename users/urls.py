@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^(?P<pk>[A-Z]{1}[0-9]{7}|[0-9]{8})/edit$', views.EditView.as_view(),
     name='edit'),
     url(r'^register/$', views.UserRegister.as_view(), name='register'),
+    url(r'^account/$', views.profile_redirect, name='account'),
     url('^', include('django.contrib.auth.urls')),
 ]

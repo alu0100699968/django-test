@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cas',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,7 +52,17 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    #CAS
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_cas.middleware.CASMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django_cas.backends.CASBackend',
+)
 
 ROOT_URLCONF = 'django_test.urls'
 
@@ -122,3 +133,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CAS_SERVER_URL='http://login.ull.es/cas-1/'
+#CAS_VERSION= '1' #'CAS_2_SAML_1_0'

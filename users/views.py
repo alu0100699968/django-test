@@ -3,9 +3,14 @@ from django.views import generic
 from django.contrib.auth.models import User as DUser
 from django.contrib.auth.models import Group
 from django.contrib.auth import login
+from django.shortcuts import redirect
 
 from .models import User
 from . import forms
+
+def profile_redirect(request):
+    print('USERNAME: ' + request.user.username)
+    return redirect('users:detail', pk=request.user.username)
 
 # Create your views here.
 class IndexView(generic.ListView):

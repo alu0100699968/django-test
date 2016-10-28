@@ -9,7 +9,7 @@
         {{form.username.label_tag}}{{form.username}}
         {{form.password.label_tag}}{{form.password}}
         <input type="submit" id="submit" name="submit" value="Sign in" />
-        <input type="hidden" name="next" value="{{ next }}" />
+        <input type="hidden" name="next" value="{% url 'users:account' %}" />
     </form>
     <a href="{% url 'users:password_reset' %}" id="forgot"> forgot username/password</a><br />
     <a href="{% url 'users:register' %}" id="new">new user</a>
