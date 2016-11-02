@@ -13,7 +13,7 @@ def profile_redirect(request):
     return redirect('users:detail', pk=request.user.username)
 
 # Create your views here.
-class IndexView(generic.ListView):
+class IndexView(generic.TemplateView):
     template_name = 'users/index.html'
 
 class ListUsersView(generic.ListView):

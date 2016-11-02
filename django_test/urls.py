@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^polls/', include('polls.urls')),
     url(r'^users/', include('users.urls')),
     # CAS
-    url(r'^accounts/login/$', views.login, name='login'),
-    url(r'^accounts/logout/$', views.logout, name='logout'),
+    url(r'^accounts/login/$', views.login, name='cas_login'),
+    url(r'^accounts/logout/$', views.logout, name='cas_logout'),
 ]

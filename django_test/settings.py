@@ -53,11 +53,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #CAS
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django_cas.middleware.CASMiddleware',
-    'django.contrib.admindocs.middleware.XViewMiddleware',]
+    #'django_cas.middleware.CASMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
+    ]
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -77,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_test.context_processor.page_name',
             ]
         },
     },
@@ -135,4 +134,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CAS_SERVER_URL='http://login.ull.es/cas-1/'
-#CAS_VERSION= '1' #'CAS_2_SAML_1_0'
+CAS_VERSION='1' #'CAS_2_SAML_1_0'
