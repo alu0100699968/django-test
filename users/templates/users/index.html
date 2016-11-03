@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="alert alert-warning">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor.</p>
+                        <p>aaLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor.</p>
                     </div>
                 </div>
             </div>
@@ -135,9 +135,10 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-md-10">
-                                    <h4>Obtención de datos para exportación a CVN <span class="label label-danger">Novedad</span></h4>
-                                    <p>Actualice o cree su CVN de forma simple exportando su perfil</p>
-                                    <a class="btn btn-success btn-sm" href="https://viinv.ull.es/cvninfo"><i class="fa fa-angle-double-right"></i> Acceder</a>
+                                    <h4>Inicio de Sesión <!-- <span class="label label-danger">Novedad</span> --></h4>
+                                    <p>Introduzca sus datos para acceder al sistema</p>
+                                    <a class="btn btn-success btn-sm" href="{% url 'cas_login' %}"><i class="fa fa-angle-double-right"></i> Acceso ULL</a>
+                                    <a class="btn btn-success btn-sm" href="{% url 'users:login' %}"><i class="fa fa-angle-double-right"></i> Acceso Admin.</a>
                                 </div>
                             </div>
                         </div>

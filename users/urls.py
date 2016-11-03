@@ -1,7 +1,9 @@
 from django.conf.urls import include, url
 from django.views.generic import RedirectView
+from django.contrib.auth import views as auth_views
 
 from . import views
+from . import forms
 
 app_name = 'users'
 urlpatterns = [
@@ -13,6 +15,7 @@ urlpatterns = [
     name='edit'),
     url(r'^register/$', views.UserRegister.as_view(), name='register'),
     url(r'^account/$', views.profile_redirect, name='account'),
+    url(r'^login/$', auth_views.login, {'authentication_form': forms.LoginForm}),
     url('^', include('django.contrib.auth.urls')),
 ]
 
