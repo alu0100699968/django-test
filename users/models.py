@@ -6,6 +6,10 @@ from django.core.exceptions import ValidationError
 from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 from django.urls import reverse
+from django.contrib.auth.models import Group
+from django.db.models.signals import post_save, post_init
+
+from notifications.signals import notify
 
 def dni_validator(dni):
     if len(dni) == 8:
@@ -22,6 +26,9 @@ def telefono_validator(telefono):
             _('Introduzca un número de teléfono válido'),
             params={'value': telefono},
         )
+
+# Se almacena el grupo staff en una variable para poder enviarle notificaciones
+staff = Group.objects.get(name='staff')
 
 # Create your models here.
 
@@ -69,3 +76,19 @@ class User(models.Model):
 
     def __unicode__(self):
         return self.nombre + ' ' + self.apellido1 + ' ' + self.apellido2
+
+    @staticmethod
+    def cambio_estado(sender, **kwargs):
+        instance = kwargs.get('instance')
+        created = kwargs.get('created')
+        if instance.estado == 'A' and instance.prev_estado != 'A':
+            print('AAAAAAAAHHHHH')
+            notify.send(instance, recipient=staff, verb='ha pasado a estar asignado')
+
+    @staticmethod
+    def recordar_estado(sender, **kwargs):
+        instance = kwargs.get('instance')
+        instance.prev_estado = instance.estado
+
+post_save.connect(User.cambio_estado, sender=User)
+post_init.connect(User.recordar_estado, sender=User)

@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import RedirectView
 from django_cas import views
+import notifications.urls
 
 urlpatterns = [
     url(r'^$', RedirectView.as_view(
@@ -28,4 +29,6 @@ urlpatterns = [
     # CAS
     url(r'^accounts/login/$', views.login, name='cas_login'),
     url(r'^accounts/logout/$', views.logout, name='cas_logout'),
+    # Notificaciones
+    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
 ]
