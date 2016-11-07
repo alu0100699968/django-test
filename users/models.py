@@ -71,11 +71,18 @@ class User(models.Model):
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'pk': self.pk})
 
+    '''
     def __str__(self):
         return self.nombre + ' ' + self.apellido1 + ' ' + self.apellido2
+    '''
 
     def __unicode__(self):
-        return self.nombre + ' ' + self.apellido1 + ' ' + self.apellido2
+        context = {
+            'nombre': self.nombre,
+            'apellido1': self.apellido1,
+            'apellido2': self.apellido2,
+        }
+        return u'%(nombre)s %(apellido1)s %(apellido2)s' % context
 
     @staticmethod
     def cambio_estado(sender, **kwargs):

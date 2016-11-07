@@ -11,7 +11,7 @@
         <meta name="keywords" content="Universidad de La Laguna" />
         <meta name="author" content="Universidad de La Laguna" />
 
-        <title>Universidad de La Laguna - T&iacute;tulo aplicaci&oacute;n o servicio</title>
+        <title>Universidad de La Laguna - {{ page_name }}</title>
 
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'users/img/apple-touch-icon-144-precomposed.png' %}">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'users/img/apple-touch-icon-114-precomposed.png' %}">
@@ -116,13 +116,13 @@
 
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="institucional">
-                                <form method="post" action="{% url 'users:login' %}" id="fmi">
+                                <form action="{% url 'users:login' %}" id="fmi" method="post">
                                     {% csrf_token %}
                                     <!-- <input type="text" autocomplete="false" value="" accesskey="u" placeholder="Usuario" style="margin-bottom:10px;" tabindex="1" title="Introduzca su nombre de usuario de la ULL sin incluir el dominio (@ull.es). " class="form-control" name="username" id="username"> -->
                                     {{form.username}}
                                     <!-- <input type="password" autocomplete="off" value="" placeholder="Contrase&#241;a" tabindex="2" style="margin-bottom:10px;" title="Introduza su contrase&#241;a de usuario, si no la conoce acceda a la opci&oacute;n inferior &quot;Recordar contraseña&quot;." class="form-control" name="password" id="password"> -->
                                     {{form.password}}
-                                    <input type="submit" tabindex="4" value="Iniciar sesi&oacute;n" accesskey="l" class="btn btn-primary btn-lg btn-block" name="submit">
+                                    <input type="submit" tabindex="4" value="Iniciar sesi&oacute;n" accesskey="l" class="btn btn-primary btn-lg btn-block" id="submit" name="submit">
                                     <div class="row">
                                         <div class="col-md-6 col-xs-6">
                                             <label class="checkbox">
