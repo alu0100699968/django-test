@@ -3,235 +3,186 @@
 <html lang="es" class="bg-imglogin">
 
 <!-- Mirrored from static.ull.es/v3/docs/examples/login/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Nov 2016 11:58:19 GMT -->
+
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Universidad de La Laguna">
-        <meta name="keywords" content="Universidad de La Laguna" />
-        <meta name="author" content="Universidad de La Laguna" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Universidad de La Laguna">
+    <meta name="keywords" content="Universidad de La Laguna" />
+    <meta name="author" content="Universidad de La Laguna" />
 
-        <title>Universidad de La Laguna - {{ page_name }}</title>
+    <title>Universidad de La Laguna - {{ page_name }}</title>
 
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'users/img/apple-touch-icon-144-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'users/img/apple-touch-icon-114-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="{% static 'users/img/apple-touch-icon-72-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" href="{% static 'users/img/apple-touch-icon-57-precomposed.png' %}">
-        <link rel="shortcut icon" href="{% static 'users/img/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'users/img/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'users/img/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'users/img/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'users/img/apple-touch-icon-57-precomposed.png' %}">
+    <link rel="shortcut icon" href="{% static 'users/img/favicon.ico' %}">
 
-        <link href="{% static 'users/css/ull.min.css' %}" rel="stylesheet">
-        <!--[if lt IE 9]><script src="//static.ull.es/v3/js/ullie.min.js"></script><![endif]-->
-        <script src="{% static 'users/js/ull.min.js' %}"></script>
+    <link href="{% static 'users/css/ull.min.css' %}" rel="stylesheet">
+    <!--[if lt IE 9]><script src="//static.ull.es/v3/js/ullie.min.js"></script><![endif]-->
+    <script src="{% static 'users/js/ull.min.js' %}"></script>
 
 
-    </head>
+</head>
 
-    <body>
-            <div class="navbar navbar-default navbar-ull" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-app-collapse">
+<body>
+    <div class="navbar navbar-default navbar-ull" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-app-collapse">
                             <span class="sr-only">Desplegar men&uacute; de aplicaci&oacute;n</span>
                             <span class="fa fa-bars fa-stack"></span>
                         </button>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                             <span class="sr-only">Desplegar men&uacute; de navegaci&oacute;n</span>
                             <span class="fa fa-link fa-stack"></span>
                         </button>
-                        <a class="navbar-brand" href="http://www.ull.es/" title="Universidad de La Laguna">Universidad de La Laguna</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse navbar-main-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios telem&aacute;ticos <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a target="_blank" title="Gesti&oacute;n de perfil de usuario" href="http://usuarios.ull.es/"><i class="fa fa-user"></i> Gesti&oacute;n de perfil de usuario</a></li>
-                                    <li><a target="_blank" title="Portal ULL" href="http://portal.ull.es/"><i class="fa fa-folder-open"></i> Portal</a></li>
-                                    <li><a target="_blank" title="Sede electr&oacute;nica" href="http://sede.ull.es/"><i class="fa fa-briefcase"></i> Sede electr&oacute;nica</a></li>
-                                    <li><a target="_blank" title="Campus Virtual" href="http://www.campusvirtual.ull.es/"><i class="fa fa-pencil"></i> Campus virtual</a></li>
-                                    <li><a target="_blank" title="Correo electr&oacute;nico" href="http://ull.edu.es/"><i class="fa fa-envelope"></i> Correo electr&oacute;nico</a></li>
-                                    <li><a target="_blank" title="Disco duro virtual"  href="http://ddv.ull.es/"><i class="fa fa-hdd-o"></i> Disco duro virtual</a></li>
-                                    <li><a target="_blank" title="Biblioteca digital" href="http://www.bbtk.ull.es/view/institucional/bbtk/Biblioteca_Digital/es"><i class="fa fa-book"></i> Biblioteca digital</a></li>
-                                    <li><a target="_blank" title="Eventos" href="http://eventos.ull.es/"><i class="fa fa-calendar"></i> Eventos</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacto <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a target="_blank" href="http://www.ull.es/"><i class="fa fa-globe"></i> P&aacute;gina Web ULL</a></li>
-                                    <li><a target="_blank" title="Formulario de contacto" href="http://www.ull.es/view/institucional/ull/Contacto_3/es"><i class="fa fa-list-alt"></i> Formulario de contacto</a></li>
-                                    <li><a target="_blank" title="Tel&eacute;fonos" href="http://www.ull.es/view/institucional/ull/Telefonos/es"><i class="fa fa-phone"></i> Directorio telef&oacute;nico</a></li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <ul class="rrss text-muted list-inline">
-                                            <li><a target="_blank" href="http://www.facebook.com/universidaddelalaguna" ><i class="fa fa-facebook-square"></i></a></li>
-                                            <li><a target="_blank" href="http://www.youtube.com/canalULL"><i class="fa fa-youtube-square"></i></a></li>
-                                            <li><a target="_blank" href="http://twitter.com/CanalULL"><i class="fa fa-twitter-square"></i></a></li>
-                                            <li><a target="_blank" href="http://www.linkedin.com/groups/Universidad-Laguna-2656178"><i class="fa fa-linkedin-square"></i></a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <a class="navbar-brand" href="http://www.ull.es/" title="Universidad de La Laguna">Universidad de La Laguna</a>
             </div>
 
-            <div class="navbar navbar-default navbar-app" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <ol class="breadcrumb">
-                            <li class="active" ><a href="#">Control de acceso</a></li>
-                        </ol>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-app-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><i class="fa fa-key"></i> Recordar contrase&#241;a</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-question-circle"></i> Ayuda y soporte <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a target="_blank" title="Portal de servicio" href="http://www.stic.ull.es/info/servicios/servicios/index.asp"><i class="fa fa-globe"></i> Portal de servicio</a></li>
-                                    <li><a target="_blank" title="Correo electr&oacute;nico stic@ull.es" href="mailto:stic@ull.es"><i class="fa fa-envelope"></i> stic@ull.es</a></li>
-                                    <li><p><i class="fa fa-phone"></i> (+34) 922 31 9180</p></li>
-                                    <li><p><i class="fa fa-map-marker"></i> Edificio Central <br/> C/ Delgado Barreto s/n. 38207 <br/>San Crist&oacute;bal de La Laguna</p></li>
-                                    <li class="divider"></li>
-                                    <li><p>Texto espec&iacute;fico que puede incluir <a href="#">enlaces</a>, texto en <strong>negrita</strong>, <i>cursiva</i> y otros elementos html.</p></li>
+            <div class="collapse navbar-collapse navbar-main-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios telem&aacute;ticos <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" title="Gesti&oacute;n de perfil de usuario" href="http://usuarios.ull.es/"><i class="fa fa-user"></i> Gesti&oacute;n de perfil de usuario</a></li>
+                            <li><a target="_blank" title="Portal ULL" href="http://portal.ull.es/"><i class="fa fa-folder-open"></i> Portal</a></li>
+                            <li><a target="_blank" title="Sede electr&oacute;nica" href="http://sede.ull.es/"><i class="fa fa-briefcase"></i> Sede electr&oacute;nica</a></li>
+                            <li><a target="_blank" title="Campus Virtual" href="http://www.campusvirtual.ull.es/"><i class="fa fa-pencil"></i> Campus virtual</a></li>
+                            <li><a target="_blank" title="Correo electr&oacute;nico" href="http://ull.edu.es/"><i class="fa fa-envelope"></i> Correo electr&oacute;nico</a></li>
+                            <li><a target="_blank" title="Disco duro virtual" href="http://ddv.ull.es/"><i class="fa fa-hdd-o"></i> Disco duro virtual</a></li>
+                            <li><a target="_blank" title="Biblioteca digital" href="http://www.bbtk.ull.es/view/institucional/bbtk/Biblioteca_Digital/es"><i class="fa fa-book"></i> Biblioteca digital</a></li>
+                            <li><a target="_blank" title="Eventos" href="http://eventos.ull.es/"><i class="fa fa-calendar"></i> Eventos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacto <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="http://www.ull.es/"><i class="fa fa-globe"></i> P&aacute;gina Web ULL</a></li>
+                            <li><a target="_blank" title="Formulario de contacto" href="http://www.ull.es/view/institucional/ull/Contacto_3/es"><i class="fa fa-list-alt"></i> Formulario de contacto</a></li>
+                            <li><a target="_blank" title="Tel&eacute;fonos" href="http://www.ull.es/view/institucional/ull/Telefonos/es"><i class="fa fa-phone"></i> Directorio telef&oacute;nico</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <ul class="rrss text-muted list-inline">
+                                    <li><a target="_blank" href="http://www.facebook.com/universidaddelalaguna"><i class="fa fa-facebook-square"></i></a></li>
+                                    <li><a target="_blank" href="http://www.youtube.com/canalULL"><i class="fa fa-youtube-square"></i></a></li>
+                                    <li><a target="_blank" href="http://twitter.com/CanalULL"><i class="fa fa-twitter-square"></i></a></li>
+                                    <li><a target="_blank" href="http://www.linkedin.com/groups/Universidad-Laguna-2656178"><i class="fa fa-linkedin-square"></i></a></li>
                                 </ul>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar navbar-default navbar-app" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ol class="breadcrumb">
+                    <li class="active"><a href="{% url 'index' %}">{{ page_name }}</a></li>
+                </ol>
+            </div>
+            <div class="collapse navbar-collapse navbar-app-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li><a href="#"><i class="fa fa-key"></i> Recordar contrase&#241;a</a></li> -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-question-circle"></i> Ayuda y soporte <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" title="Portal de servicio" href="http://www.stic.ull.es/info/servicios/servicios/index.asp"><i class="fa fa-globe"></i> Portal de servicio</a></li>
+                            <li><a target="_blank" title="Correo electr&oacute;nico stic@ull.es" href="mailto:stic@ull.es"><i class="fa fa-envelope"></i> stic@ull.es</a></li>
+                            <li>
+                                <p><i class="fa fa-phone"></i> (+34) 922 31 9180</p>
+                            </li>
+                            <li>
+                                <p><i class="fa fa-map-marker"></i> Edificio Central <br/> C/ Delgado Barreto s/n. 38207 <br/>San Crist&oacute;bal de La Laguna</p>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <p>Texto espec&iacute;fico que puede incluir <a href="#">enlaces</a>, texto en <strong>negrita</strong>, <i>cursiva</i> y otros elementos html.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 nav-ull">
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#institucional">Inicio de sesión</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="institucional">
+                        <form action="{% url 'users:login' %}" id="fmi" method="post">
+                            {% csrf_token %}
+                            <!-- <input type="text" autocomplete="false" value="" accesskey="u" placeholder="Usuario" style="margin-bottom:10px;" tabindex="1" title="Introduzca su nombre de usuario de la ULL sin incluir el dominio (@ull.es). " class="form-control" name="username" id="username"> -->
+                            {{form.username}}
+                            <!-- <input type="password" autocomplete="off" value="" placeholder="Contrase&#241;a" tabindex="2" style="margin-bottom:10px;" title="Introduza su contrase&#241;a de usuario, si no la conoce acceda a la opci&oacute;n inferior &quot;Recordar contraseña&quot;." class="form-control" name="password" id="password"> -->
+                            {{form.password}}
+                            {%if form.errors %}
+                            <div class="alert alert-danger">
+                            Combinación de usuario y contraseña no válidas.
+                            </div><hr/>
+                            {% endif %}
+                            <input type="submit" tabindex="4" value="Iniciar sesi&oacute;n" accesskey="l" class="btn btn-primary btn-lg btn-block" id="submit" name="submit">
+                            <input type="hidden" name="next" value="{% url 'index' %}" />
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <!-- <label class="alert alert-warning">
+                                      <input type="checkbox" tabindex="3" accesskey="a" value="true" name="warn" id="warn"> Avisarme antes de abrir sesión en otros sitios.
+                                    </label> -->
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <a href="{% url 'users:password_reset' %}" class="btn btn-link pull-right">Recordar contraseña</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                    <!-- institucional tab -->
+
                 </div>
+                <!-- tab-content -->
+
             </div>
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 nav-ull">
+        </div>
 
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#institucional">Credencial institucional</a></li>
-                            <li class="pull-right"><a data-toggle="tab" href="#info">Informaci&oacute;n</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div class="tab-pane fade active in" id="institucional">
-                                <form action="{% url 'users:login' %}" id="fmi" method="post">
-                                    {% csrf_token %}
-                                    <!-- <input type="text" autocomplete="false" value="" accesskey="u" placeholder="Usuario" style="margin-bottom:10px;" tabindex="1" title="Introduzca su nombre de usuario de la ULL sin incluir el dominio (@ull.es). " class="form-control" name="username" id="username"> -->
-                                    {{form.username}}
-                                    <!-- <input type="password" autocomplete="off" value="" placeholder="Contrase&#241;a" tabindex="2" style="margin-bottom:10px;" title="Introduza su contrase&#241;a de usuario, si no la conoce acceda a la opci&oacute;n inferior &quot;Recordar contraseña&quot;." class="form-control" name="password" id="password"> -->
-                                    {{form.password}}
-                                    <input type="submit" tabindex="4" value="Iniciar sesi&oacute;n" accesskey="l" class="btn btn-primary btn-lg btn-block" id="submit" name="submit">
-                                    <div class="row">
-                                        <div class="col-md-6 col-xs-6">
-                                            <label class="checkbox">
-                                                <input type="checkbox" tabindex="3" accesskey="a" value="true" name="warn" id="warn"> Avisarme antes de abrir sesión en otros sitios.
-                                            </label>
-                                        </div>
-                                        <div class="col-md-6 col-xs-6">
-                                            <a href="https://usuarios.ull.es/reenvio" class="btn btn-link pull-right">Recordar contraseña</a>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <div class="alert alert-warning">Por razones de seguridad, por favor cierre la sesión y cierre su navegador web cuando haya terminado de acceder a los servicios que requieren autenticación.</div>
-                                    <input type="hidden" name="next" value="{% url 'users:account' %}" />
-                                </form>
-                            </div> <!-- institucional tab -->
-
-                            <div class="tab-pane fade" id="info">
-                                    <div class="alert alert-info">
-                                        <h5>Servicio de autenticación centralizado de la Universidad de La Laguna</h5>
-                                        <p>Este servicio homogeiniza la autenticación de los servicios telemáticos de la Universidad de La Laguna. Implementa lo que se conoce como "<a target="_blank" href="http://es.wikipedia.org/wiki/Single_Sign-On">Single Sign On</a>" que significa que los usuarios pueden acceder a varios sistemas con una sola instancia de identificación.</p>
-                                    </div>
-
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <h5>Información sobre credenciales de usuario ULL</h5>
-                                            <p>El identificador de Usuario que debe utilizar para acceder a los servicios telemáticos de la Universidad de La Laguna es siguiente:</p>
-                                            <ul>
-                                                <li>Para el Personal de Administraci&oacute;n y Servicios (PAS) y el Personal Docente e Investigador (PDI) es el mismo que se utiliza para el acceso al servicio de correo electr&oacute;nico de la ULL. Si lo desconoce puede ponerse en contacto con el <a href="http://www.stic.ull.es/info/servicios/servicios/contacto.asp">Servicio de Tecnolog&iacute;as de la Informaci&oacute;n y la Comunicaci&oacute;n (STIC)</a> para solicitar su nombre de usuario y una  contrase&#241;a.</li>
-                                                <li>Para el Alumnado se construye con el prefijo "alu" seguido del Número de Identificaci&oacute;n Universitario (NIU), por ejemplo: alu0100000000. Si desconoce su NIU o su clave de acceso pulse en el siguiente "<a target="_blank" href="https://usuarios.ull.es/reenvio/">enlace</a>" para iniciar el proceso de recuperaci&oacute;n.</li>
-                                            </ul>
-                                            <hr/>
-                                            <a class="btn btn-primary btn-xs" href="https://usuarios.ull.es/">Más informaci&oacute;n &raquo;</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="thumbnail">
-                                                    <div class="caption">
-                                                        <h5>Servicios telem&aacute;ticos ULL compatibles</h5>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://ddv.ull.es/">Disco duro virtual y páginas personales</a></li>
-                                                            <li><a target="_blank" href="http://tarjeta.ull.es/">Tarjeta Universitaria</a></li>
-                                                            <li><a target="_blank" href="http://reservas.ull.es/">Reservas</a></li>
-                                                            <li><a target="_blank" href="http://sigidi.ull.es/">Sistema Informático de Gestión de la Investigación Desarrollo e Innovación (SIGIDi)</a></li>
-                                                            <li><a target="_blank" href="http://ull.edu.es/">Servicios ULL.edu.es</a></li>
-                                                            <li><a target="_blank" href="http://campusvirtual.ull.es/">Campus virtual</a></li>
-                                                            <li><a target="_blank" href="http://sede.ull.es/">Sede electrónica</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="thumbnail">
-                                                    <div class="caption">
-                                                        <h5>Servicio de identidad Rediris (SIR)</h5>
-                                                        <dl>
-                                                            <dt><a href="http://www.springerlink.com/" target="_blank">SpringerLink</a></dt>
-                                                            <dd>Elegir "Acceso Institucional/Institutional Login", "España/Spain" y "Universidad de La Laguna"</dd>
-                                                            <dt><a href="http://www.metapress.com/" target="_blank">MetaPress</a></dt>
-                                                            <dd>Elegir "Acceso Institucional/Institutional Login", "España/Spain" y "Universidad de La Laguna"</dd>
-                                                            <dt><a href="http://www.rediris.es/app/sirdemo/demooid/finder.php" target="_blank">¿Cuál es mi OpenID?</a></dt>
-                                                            <dd>RedIRIS tambien ofrece soporte de autentificacación descentralizada OpenID. Descubra su OpenID en esta página.</dd>
-                                                            <dt><a href="https://downloads.channel8.msdn.com/" target="_blank">Microsoft dreamspark</a></dt>
-                                                        </dl>
-                                                        <hr/>
-                                                        <div class="alert alert-warning">El <a href="http://www.rediris.es/sir/index.html.es">El </a><a href="http://www.rediris.es/sir/index.html.es">Servicio de identidad de Rediris</a> permite acceder a una lista creciente de servicios, como pueden ser recursos de biblioteca, basados en openid, o herramientas de Rediris. Consultar <a href="http://www.rediris.es/sir/index.html.es">la web del SIR</a> para un listado actualizado.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
+    </div>
 
 
-
-                            </div> <!-- info tab -->
-
-                        </div> <!-- tab-content -->
-
-                    </div>
-
-                </div>
-
-</div>
-
-
-        <div id="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <ul class="address pull-left">
-                            <li><strong>Universidad de La Laguna</strong><br/> Pabell&oacute;n de Gobierno, C/ Padre Herrera s/n. | 38200 | Apartado Postal 456 | San Crist&oacute;bal de La Laguna | Espa&#241;a | (+34) 922 31 90 00</li>
-                        </ul>
-                        <ul class="list-inline text-muted pull-right">
-                            <li><a title="Facebook" target="_blank" href="http://www.facebook.com/universidaddelalaguna" ><span class="fa fa-facebook-square"></span></a></li>
-                            <li><a title="Youtube" target="_blank" href="http://www.youtube.com/canalULL"><i class="fa fa-youtube-square"></i></a></li>
-                            <li><a title="Twitter" target="_blank" href="http://twitter.com/CanalULL"><i class="fa fa-twitter-square"></i></a></li>
-                            <li><a title="LinkedIn" target="_blank" href="http://www.linkedin.com/groups/Universidad-Laguna-2656178"><i class="fa fa-linkedin-square"></i></a></li>
-                            <li><a title="P&aacute;gina web ULL" target="_blank" href="http://www.ull.es/"><i class="fa fa-globe"></i></a></li>
-                        </ul>
-                    </div>
+    <div id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="address pull-left">
+                        <li><strong>Universidad de La Laguna</strong><br/> Pabell&oacute;n de Gobierno, C/ Padre Herrera s/n. | 38200 | Apartado Postal 456 | San Crist&oacute;bal de La Laguna | Espa&#241;a | (+34) 922 31 90 00</li>
+                    </ul>
+                    <ul class="list-inline text-muted pull-right">
+                        <li><a title="Facebook" target="_blank" href="http://www.facebook.com/universidaddelalaguna"><span class="fa fa-facebook-square"></span></a></li>
+                        <li><a title="Youtube" target="_blank" href="http://www.youtube.com/canalULL"><i class="fa fa-youtube-square"></i></a></li>
+                        <li><a title="Twitter" target="_blank" href="http://twitter.com/CanalULL"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a title="LinkedIn" target="_blank" href="http://www.linkedin.com/groups/Universidad-Laguna-2656178"><i class="fa fa-linkedin-square"></i></a></li>
+                        <li><a title="P&aacute;gina web ULL" target="_blank" href="http://www.ull.es/"><i class="fa fa-globe"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript">
-            $('#username').focus();
-        </script>
-    </body>
+    <script type="text/javascript">
+        $('#username').focus();
+    </script>
+</body>
 
 <!-- Mirrored from static.ull.es/v3/docs/examples/login/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Nov 2016 11:58:19 GMT -->
+
 </html>

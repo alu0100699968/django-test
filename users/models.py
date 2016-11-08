@@ -39,7 +39,7 @@ class Centro(models.Model):
         return self.nombre
 
 class User(models.Model):
-    regex = r'^(?i)([a-zñáéíóú]{2,60})$'
+    regex = r'^(?i)([a-zñÁÉÍÓÚáéíóú. ]{2,60})$'
     ESTADOS = (
         ('A', 'Asignado'),
         ('S', 'Suplente'),
@@ -55,17 +55,17 @@ class User(models.Model):
     nombre = models.CharField(max_length=200,
         validators=[validators.RegexValidator(regex)])
     apellido1 = models.CharField(max_length=200)
-    apellido2 = models.CharField(max_length=200)
+    apellido2 = models.CharField(max_length=200, blank=True)
     dni = models.CharField(primary_key=True, validators=[dni_validator],
         max_length=8)
     estado = models.CharField(max_length=1, choices=ESTADOS, default='N')
-    titulacion = models.CharField(max_length=200)
+    titulacion = models.CharField(max_length=500)
     centro_asignado = models.ForeignKey(Centro, on_delete=models.SET_NULL,
         blank=True, null=True)
     horario_asignado = models.CharField(max_length=1, choices=HORARIOS,
         default="N")
     email = models.EmailField(unique=True)
-    telefono = models.PositiveIntegerField(validators=[telefono_validator])
+    telefono = models.PositiveIntegerField(validators=[telefono_validator], blank=True)
 
     #para redirigir al crear o editar un usuario en un form
     def get_absolute_url(self):

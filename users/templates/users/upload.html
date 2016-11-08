@@ -1,0 +1,12 @@
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>{{ form.non_field_errors }}</p>
+
+    <p>{{ form.csv_file.label_tag }} {{ form.csv_file.help_text }}</p>
+
+    <p>
+        {{ form.csv_file.errors }} {{ form.csv_file }}
+    </p>
+
+    <p><input type="submit" value="Upload" /></p>
+</form>

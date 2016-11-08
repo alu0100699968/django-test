@@ -13,6 +13,9 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(label="Password", max_length=30, widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'name': 'password', 'style': 'margin-bottom:10px;', 'placeholder': 'Contraseña'}))
 
+class UploadCSVForm(forms.Form):
+    csv_file = forms.FileField(label='Select a file')
+
 
 class UserRegisterForm(forms.ModelForm):
 

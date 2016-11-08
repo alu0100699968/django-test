@@ -15,6 +15,7 @@ urlpatterns = [
     name='edit'),
     url(r'^register/$', views.UserRegister.as_view(), name='register'),
     url(r'^account/$', views.profile_redirect, name='account'),
+    url(r'^upload/$', views.upload_file, name='upload'),
     url(r'^login/$', auth_views.login, {'authentication_form': forms.LoginForm}),
     url('^', include('django.contrib.auth.urls')),
 ]

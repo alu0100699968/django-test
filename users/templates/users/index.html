@@ -17,8 +17,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static '/users/img/apple-touch-icon-144-precomposed.png' %}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static '/users/img/apple-touch-icon-114-precomposed.png' %}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static '/users/img/apple-touch-icon-72-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" href="{% static '/users/img/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="{% static '/users/img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="{% static '/users/img/apple-touch-icon-57-precomposed.png' %}">
+    <link rel="shortcut icon" href="{% static '/users/img/favicon.ico' %}">
 
     <link href="{% static '/users/css/ull.min.css' %}" rel="stylesheet">
     <!--[if lt IE 9]><script src="//static.ull.es/v3/dist/js/ullie.min.js"></script><![endif]-->
@@ -89,7 +89,8 @@
             </div>
             <div class="collapse navbar-collapse navbar-app-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Notificaciones {% live_notify_badge classes="badge" %}<b class="caret"></b></a> {% live_notify_list classes="dropdown-menu" %}</li>
+                    {% if is_staff %}
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Notificaciones {% live_notify_badge classes="badge" %}<b class="caret"></b></a> {% live_notify_list classes="dropdown-menu" %}</li>{% endif %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-question-circle"></i> Ayuda y soporte <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -126,8 +127,11 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="alert alert-warning">
-                            <p>aaLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in
-                                quam accumsan, viverra ligula non, hendrerit mi. Cras tempor arcu a sodales porttitor.</p>
+                            {% if user.is_authenticated %}
+                            <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+                            {% else %}
+                            <p>Welcome, new user. Please log in.</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -143,7 +147,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-2 align-center">
-                                        <i class="fa fa-tasks fa-5x"></i>
+                                        <i class="fa fa-user fa-5x"></i>
                                     </div>
                                     <div class="col-md-10">
                                         <h4>Inicio de Sesión <!-- <span class="label label-danger">Novedad</span> --></h4>
@@ -165,7 +169,7 @@
                                     <div class="col-md-10">
                                         <h4>SIGIDi</h4>
                                         <p>Informaci&oacute;n sobre el estado administrativo y contable de sus proyectos, convenios y contratos de investigaci&oacute;n.</p>
-                                        <a class="btn btn-primary btn-sm" href="http://sigidi.ull.es/"><i class="fa fa-angle-double-right"></i> Acceder</a>
+                                        <a class="btn btn-primary btn-sm" href="{% url 'users:upload' %}"><i class="fa fa-angle-double-right"></i> Acceder</a>
                                     </div>
                                 </div>
                             </div>
