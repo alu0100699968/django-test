@@ -9,20 +9,18 @@ from django.shortcuts import render
 
 from .models import User
 from . import forms
-from .import_csv import import_csv
+#from .import_csv import import_csv
 
 def profile_redirect(request):
     print('USERNAME: ' + request.user.username)
     return redirect('users:detail', pk=request.user.username)
 
 def upload_file(request):
-    print('muy fuera')
     if request.method == 'POST':
         form = forms.UploadCSVForm(request.POST, request.FILES)
-        print('fuera del ifazo')
         if form.is_valid():
             print('el archivo estaba bonito')
-            import_csv(request.FILES['csv_file'])
+            #import_csv(request.FILES['csv_file'])
             return HttpResponseRedirect('/')
     else:
         print('else del diablo')

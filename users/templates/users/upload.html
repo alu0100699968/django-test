@@ -2,10 +2,14 @@
     {% csrf_token %}
     <p>{{ form.non_field_errors }}</p>
 
-    <p>{{ form.csv_file.label_tag }} {{ form.csv_file.help_text }}</p>
+    <p>{{ form.csv_file_field.label_tag }}</p><p>{{ form.csv_file_field.help_text }}</p>
 
     <p>
-        {{ form.csv_file.errors }} {{ form.csv_file }}
+         {{ form.csv_file_field }}
+         <p>{% if form.errors %}
+         <strong>Ha habido errores al añadir los datos del fichero a la BD:</strong>
+         {{ form.csv_file_field.errors }}
+         {% endif %}</p>
     </p>
 
     <p><input type="submit" value="Upload" /></p>
