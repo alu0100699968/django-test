@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -11,6 +11,7 @@ from django.db.models.signals import post_save, post_init
 
 from notifications.signals import notify
 
+
 def dni_validator(dni):
     if len(dni) == 8:
         if (dni[0].isalpha() and dni[1:].isdigit()) or dni.isdigit():
@@ -19,6 +20,7 @@ def dni_validator(dni):
         _('Introduzca un DNI válido'),
         params={'value': dni},
     )
+
 
 def telefono_validator(telefono):
     if len(str(telefono)) != 9:
@@ -32,11 +34,13 @@ staff = Group.objects.get(name='staff')
 
 # Create your models here.
 
+
 class Centro(models.Model):
     nombre = models.CharField(max_length=200)
 
     def __str__(self):
         return self.nombre
+
 
 class User(models.Model):
     regex = r'^(?i)([a-zñÁÉÍÓÚáéíóú. ]{2,60})$'
@@ -53,21 +57,22 @@ class User(models.Model):
         ('N', 'No asignado'),
     )
     nombre = models.CharField(max_length=200,
-        validators=[validators.RegexValidator(regex)])
+                              validators=[validators.RegexValidator(regex)])
     apellido1 = models.CharField(max_length=200)
     apellido2 = models.CharField(max_length=200, blank=True)
     dni = models.CharField(primary_key=True, validators=[dni_validator],
-        max_length=8)
+                           max_length=8)
     estado = models.CharField(max_length=1, choices=ESTADOS, default='N')
     titulacion = models.CharField(max_length=500)
     centro_asignado = models.ForeignKey(Centro, on_delete=models.SET_NULL,
-        blank=True, null=True)
+                                        blank=True, null=True)
     horario_asignado = models.CharField(max_length=1, choices=HORARIOS,
-        default="N")
+                                        default="N")
     email = models.EmailField(unique=True)
-    telefono = models.PositiveIntegerField(validators=[telefono_validator], blank=True)
+    telefono = models.PositiveIntegerField(
+        validators=[telefono_validator], blank=True)
 
-    #para redirigir al crear o editar un usuario en un form
+    # para redirigir al crear o editar un usuario en un form
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'pk': self.pk})
 
@@ -88,9 +93,11 @@ class User(models.Model):
     def cambio_estado(sender, **kwargs):
         instance = kwargs.get('instance')
         created = kwargs.get('created')
+        print('Estado previo: ' + instance.prev_estado)
         if instance.estado == 'A' and instance.prev_estado != 'A':
             print('AAAAAAAAHHHHH')
-            notify.send(instance, recipient=staff, verb='ha pasado a estar asignado')
+            notify.send(instance, recipient=staff, verb='ha pasado a estar asignado',
+                        action_object=instance)
 
     @staticmethod
     def recordar_estado(sender, **kwargs):
